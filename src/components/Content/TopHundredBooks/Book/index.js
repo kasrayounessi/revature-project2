@@ -2,14 +2,13 @@ import React from "react";
 
 const Book = (props) => {
   return (
-    <div class="col-sm-3">
+    <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top" src={ require("./"+props.data.imageLink).default } width="100" height="200"/>
+        <img class="card-img-top" src={ require("./"+props.data.imageLink).default }  height="300"/>
         <div class="card-body">
-          <h5 class="card-title">{props.data.title}</h5>
+          <h6 class="card-title">{props.data.title}</h6>
           <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
+            Country: {props.data.country} <br/> Year: {props.data.year} <br/> Pages: {props.data.pages}
           </p>
           <a href="#" class="btn btn-success btn-block">
             Buy now

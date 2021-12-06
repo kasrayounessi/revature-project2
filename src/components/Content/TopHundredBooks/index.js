@@ -8,6 +8,11 @@ const TopHundredBooks = () => {
       <h1 className="text-success">Top 100 Books</h1>
       <br />
       <div class="row">
+        {books.map((book)=> {
+          if(book.year<0){
+            book.year = (book.year*-1) + "BC";
+          }
+        })}
         {books.map((book) => (
           <Book data={book} />
         ))}

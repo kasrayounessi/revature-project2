@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
+import NavbarSignIn from "./NavbarSignIn";
+import NavbarSignUp from "./NavbarSignUp";
 import "./style.css";
 
 const Navbar = () => {
+  const [status, setStatus] = useState();
+
+  function handleSignIn(event) {
+    event.stopPropagation();
+    setStatus(true);
+  }
+
+  function handleSignUp(event) {
+    event.stopPropagation();
+    setStatus(false);
+  }
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand team-name" href="#">
-        Coast to Coast
+      <a className="navbar-brand text-success" href="#">
+        CoastToCoast
       </a>
       <button
         className="navbar-toggler"
@@ -58,6 +72,11 @@ const Navbar = () => {
               </a>
             </div>
           </li>
+        </ul>
+      </div>
+
+      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul className="navbar-nav ml-auto">
           <li className="nav-item dropdown">
             <a
               className="nav-link dropdown-toggle navbar-section"
@@ -67,65 +86,45 @@ const Navbar = () => {
               data-toggle="dropdown"
               aria-expanded="false"
             >
-              Login
+              Account
             </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <form class="px-4 py-3">
-              <div class="form-group">
-                <label for="usernameDropdown">Username</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="usernameDropdown"
-                  placeholder="booklover1"
-                />
+            <div
+              className="dropdown-menu dropdown-menu-right account-login-container"
+              aria-labelledby="navbarDropdown"
+            >
+              <div className="row">
+                <div className="col-sm-6">
+                  <button
+                    className="btn btn-outline-success btn-block "
+                    onClick={handleSignIn}
+                  >
+                    Existing
+                  </button>
+                </div>
+                <div className="col-sm-6">
+                  <button
+                    className="btn btn-outline-success btn-block"
+                    onClick={handleSignUp}
+                  >
+                    New
+                  </button>
+                </div>
               </div>
-              <div class="form-group">
-                <label for="exampleDropdownFormPassword1">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="exampleDropdownFormPassword1"
-                  placeholder="Password"
-                />
-              </div>
-              <div class="form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="dropdownCheck"
-                />
-                <label class="form-check-label" for="dropdownCheck">
-                  Remember me
-                </label>
-              </div>
-              <button type="submit" class="btn btn-success">
-                Sign in
-              </button>
-            </form>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              New around here? Sign up
-            </a>
-            <a class="dropdown-item" href="#">
-              Forgot password?
-            </a>
+              {(() => {
+                switch (status) {
+                  case true:
+                    return <NavbarSignIn />;
+                  case false:
+                    return <NavbarSignUp />;
+                  default:
+                    return null;
+                }
+              })()}
+              <p>********************************************</p>
             </div>
           </li>
         </ul>
       </div>
-
-      <form class="form-inline">
-        <input
-          class="form-control mr-sm-2"
-          type="search"
-          placeholder="Search"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-          Search
-        </button>
-      </form>
     </nav>
   );
 };

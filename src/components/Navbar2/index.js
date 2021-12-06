@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import NavbarSignIn from "./NavbarSignIn";
 import NavbarSignUp from "./NavbarSignUp";
-
 import "./style.css";
+
 
 
 const Navbar2 = () => {
@@ -19,7 +19,7 @@ const Navbar2 = () => {
     }
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand team-name" href="#">
+            <a className="navbar-brand team-name text-success" href="#">
                 Coast to Coast
             </a>
             <button
