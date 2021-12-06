@@ -6,3 +6,15 @@
 .navbar-section{
     font-size:1.6em;
 }
+.navbar .account-button
+{
+    position: absolute;
+  top: 0px;
+  right: 15px;
+}
+
+@media (max-width: 767px) {
+  .navbar .account-button {
+    right: 75px;
+  }
+}
