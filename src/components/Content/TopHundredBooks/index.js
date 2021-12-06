@@ -1,5 +1,5 @@
 import React from "react";
-import Book from "../Book";
+import Book from "./Book";
 import { books } from "./100-books";
 
 const TopHundredBooks = () => {
