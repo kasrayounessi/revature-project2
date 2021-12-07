@@ -4,7 +4,7 @@ import { books } from "./100-books";
 
 const TopHundredBooks = () => {
   return (
-    <div className="container">
+    <div className="container bg-light">
       <h1 className="text-success">Top 100 Books</h1>
       <br />
       <div class="row">

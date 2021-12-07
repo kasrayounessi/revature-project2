@@ -19,7 +19,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand text-success" href="#">
-        CoastToCoast
+        Coast2Coast
       </a>
       <button
         className="navbar-toggler"

@@ -1,15 +1,13 @@
-import Content from "./components/Content";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Navbar from "./components/Navbar";
+import AudioBooksMenu from "./components/AudioBooksMenu";
+import AudioBooksPage from "./pages/AudioBooksPage";
+import HomePage from "./pages/HomePage";
+
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <Header />
-      <Content />
-      <Footer />
+    <div>
+      {/*<HomePage />*/}
+      <AudioBooksPage />
     </div>
   );
 }

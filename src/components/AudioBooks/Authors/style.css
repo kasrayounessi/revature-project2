@@ -1,0 +1,66 @@
+.authors-custom {
+  margin-bottom: 1.2em;
+  cursor:pointer;
+  padding: 0.5em;
+  font-size: 1.8em;
+  text-align: center;
+  border: dotted 5px #198754;
+  animation-name: spin;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.authors-link-custom {
+  color: white;
+  animation-name: authors-menu-anim;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  
+}
+
+
+@keyframes authors-menu-anim {
+  0% {
+    color: #198754;
+  }
+  25% {
+    color: white;
+  }
+  50% {
+    color: #198754;
+  }
+  75% {
+    color: white;
+  }
+  100% {
+    color: #198754;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+    border: 10px dotted white;
+    
+    
+    
+  }
+  25% {
+    transform: rotate(30deg);
+    border: 10px dotted #198754;
+  }
+  50%{
+      transform: rotate(0deg);
+      border: 10px dotted white;
+  }
+  75% {
+    transform: rotate(-30deg);
+    border: 10px dotted #198754;
+  }
+  100%{
+      transform: rotate(0deg);
+      border: 10px dotted white;
+  }
+}

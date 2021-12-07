@@ -1,6 +1,4 @@
 import React from "react";
-import angels from "./love-of-angels.svg";
-import horse from "./horse.svg";
 import Carousel1 from "./Carousel1";
 
 const Header = () => {
