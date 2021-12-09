@@ -3,7 +3,7 @@ import TopHundredBooks from "./TopHundredBooks";
 
 const Content = () => {
   return (
-    <div className="jumbotron bg-dark">
+    <div className="jumbotron bg-light">
       <TopHundredBooks />
     </div>
   );

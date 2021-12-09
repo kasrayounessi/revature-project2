@@ -1,0 +1,8 @@
+.shopping-cart-item-custom{
+    padding:2em;
+}
+
+.shopping-cart-item-image-custom{
+    border: 3px dotted #28a745 !important;
+    padding:1em;
+}
