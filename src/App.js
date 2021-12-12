@@ -1,15 +1,14 @@
-import Content from "./components/Content";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import "./App.css";
 import Navbar from "./components/Navbar";
+import SearchBar from "./components/SearchBar";
+import Contents from "./components/Contents";
 
-function App() {
+function App(props) {
   return (
     <div className="App">
       <Navbar />
-      <Header />
-      <Content />
-      <Footer />
+      <SearchBar />
+      <Contents />
     </div>
   );
 }

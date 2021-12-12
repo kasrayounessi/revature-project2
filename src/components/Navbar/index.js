@@ -1,131 +1,112 @@
-import React, { useState } from "react";
-import NavbarSignIn from "./NavbarSignIn";
-import NavbarSignUp from "./NavbarSignUp";
-import "./style.css";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
+import "../../style.css";
+import {
+  BsSearch,
+  BsFillArrowUpCircleFill,
+  BsBookHalf,
+  BsFillEmojiHeartEyesFill,
+  BsVectorPen,
+  BsHeadphones,
+  BsSuitHeartFill,
+} from "react-icons/bs";
+import { GiAncientSword, GiSpaceSuit } from "react-icons/gi";
 
 const Navbar = () => {
-  const [status, setStatus] = useState();
-
-  function handleSignIn(event) {
-    event.stopPropagation();
-    setStatus(true);
-  }
-
-  function handleSignUp(event) {
-    event.stopPropagation();
-    setStatus(false);
-  }
-
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a className="navbar-brand text-success" href="#">
-        CoastToCoast
+    <nav className="navbar fixed-top navbar-expand-lg ">
+      <a className="navbar-brand" href="#">
+        Coast to Coast
       </a>
       <button
         className="navbar-toggler"
         type="button"
         data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
         aria-expanded="false"
         aria-label="Toggle navigation"
       >
         <span className="navbar-toggler-icon"></span>
       </button>
-
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link navbar-section" href="#">
-              Home <span className="sr-only">(current)</span>
+            <a className="nav-link" href="#">
+              <span className="icon">
+                <BsSearch />
+              </span>
+              Search <span className="sr-only">(current)</span>
             </a>
           </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle navbar-section"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Genres
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span className="icon">
+                <BsFillEmojiHeartEyesFill />
+              </span>
+              My List
             </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="#">
-                Action and Adventure
-              </a>
-              <a className="dropdown-item" href="#">
-                Classics
-              </a>
-              <a className="dropdown-item" href="#">
-                Fiction
-              </a>
-              <a className="dropdown-item" href="#">
-                History
-              </a>
-              <a className="dropdown-item" href="#">
-                Horror
-              </a>
-              <a className="dropdown-item" href="#">
-                Romance
-              </a>
-            </div>
           </li>
-        </ul>
-      </div>
-
-      <div className="navbar-collapse collapse w-100 order-3 dual-collapse2">
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle navbar-section"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-            >
-              Account
+          <li className="nav-item">
+            <a className="nav-link" href="#">
+              <span className="icon">
+                <BsFillArrowUpCircleFill />
+              </span>
+              Popular
             </a>
-            <div
-              className="dropdown-menu dropdown-menu-right account-login-container"
-              aria-labelledby="navbarDropdown"
-            >
-              <div className="row">
-                <div className="col-sm-6">
-                  <button
-                    className="btn btn-outline-success btn-block "
-                    onClick={handleSignIn}
-                  >
-                    Existing
-                  </button>
-                </div>
-                <div className="col-sm-6">
-                  <button
-                    className="btn btn-outline-success btn-block"
-                    onClick={handleSignUp}
-                  >
-                    New
-                  </button>
-                </div>
-              </div>
-              {(() => {
-                switch (status) {
-                  case true:
-                    return <NavbarSignIn />;
-                  case false:
-                    return <NavbarSignUp />;
-                  default:
-                    return null;
-                }
-              })()}
-              <p>********************************************</p>
-            </div>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span className="icon">
+                <BsBookHalf />
+              </span>
+              Fiction
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span className="icon">
+                <GiAncientSword />
+              </span>
+              Fantasy
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span className="icon">
+                <BsVectorPen />
+              </span>
+              Manga
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span className="icon">
+                <GiSpaceSuit />
+              </span>
+              Sci-Fi
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span className="icon">
+                <BsSuitHeartFill />
+              </span>
+              Romance
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link " href="#">
+              <span className="icon">
+                <BsHeadphones />
+              </span>
+              AudioBooks
+            </a>
           </li>
         </ul>
       </div>
     </nav>
   );
 };
+
 export default Navbar;
