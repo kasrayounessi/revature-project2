@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../../style.css";
-import { BsSearch } from "react-icons/bs";
+import { BsSearch, BsFillPlusCircleFill } from "react-icons/bs";
 import axios from "axios";
 import CardList from "../Contents/CardList";
 import Carousel from "react-elastic-carousel";
@@ -10,6 +10,7 @@ const SearchBar = (props) => {
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState(
     "AIzaSyCKZuhy3LKcKQf1mTTHg4vgC-GmUkREuGA"
+    // "AIzaSyApxBTXTqkBeDIr4O13025SmfzUkmt5jUE"
   );
 
   const handleSearch = (event) => {
@@ -54,6 +55,12 @@ const SearchBar = (props) => {
   function clearSearch() {
     document.getElementById("search-box").value = "";
   }
+  const addToCart = () => {
+    console.log("Add to cart");
+  };
+  const bgGradient = {
+    background: `linear-gradient(#92FE9D,#f8f9fa)`,
+  };
   const breakPoints = [
     { width: 500, itemsToShow: 1 },
     { width: 768, itemsToShow: 2 },
@@ -62,7 +69,7 @@ const SearchBar = (props) => {
   ];
   return (
     // <div id="search" className="result">
-    <section className="result">
+    <section className="result" id="Search">
       <form onSubmit={searchBook} action="" className="flex">
         <div className="flex">
           <button type="submit" style={{ backgroundColor: "transparent" }}>
@@ -79,21 +86,40 @@ const SearchBar = (props) => {
           />
         </div>
       </form>
-      <Carousel breakPoints={breakPoints}>
-        {result.map((book) => (
-          <a target="_blank" href={book.volumeInfo.previewLink}>
-            <img
-              src={
-                book.volumeInfo.imageLinks === undefined
-                  ? ""
-                  : `${book.volumeInfo.imageLinks.thumbnail}`
-              }
-              alt={book.title}
-            />
-          </a>
-        ))}
-      </Carousel>
-      {/* {renderSearch(result)} */}
+      {/* this section of code will render if the result.length is bigger than 0 */}
+      {result.length > 0 ? (
+        <Carousel
+          breakPoints={breakPoints}
+          pagination={false}  className="card-list"
+        >
+          {result.map((book) => (
+            <div style={bgGradient} className="book">
+              <img
+                className="thumbnail"
+                src={
+                  book.volumeInfo.imageLinks === undefined
+                    ? ""
+                    : `${book.volumeInfo.imageLinks.thumbnail}`
+                }
+                alt={book.title}
+              />
+              <div className="book-info">
+                <h3 className="book-title">{book.volumeInfo.title}</h3>
+                <div className="info">
+                  <button
+                    onClick={addToCart}
+                    style={{ background: "inherit", color: "inherit" }}
+                  >
+                    Add: $15
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </Carousel>
+      ) : (
+        console.log(0)
+      )}
     </section>
     // </div>
   );
