@@ -13,12 +13,13 @@ import {
 import { GiAncientSword, GiSpaceSuit } from "react-icons/gi";
 import { Link } from "react-scroll";
 
-const Navbar = ({handleLoginClick}) => {
-
+const Navbar = ({ handleLoginClick,handleCartClick }) => {
   const handleClick = () => {
     handleLoginClick();
+  };
+  const onCartClick = () => {
+    handleCartClick();
   }
-  
   return (
     <nav className="navbar fixed-top navbar-expand-lg bg-light text ">
       <a className="navbar-brand" href="#">
@@ -36,14 +37,14 @@ const Navbar = ({handleLoginClick}) => {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav">
+        <ul className="navbar-nav mr-auto">
           <Link
             className="nav-item active"
             activeClass="active"
             to="Search"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-10}
             duration={500}
           >
             <a className="nav-link" href="#">
@@ -60,7 +61,7 @@ const Navbar = ({handleLoginClick}) => {
             to="Popular"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-20}
             duration={500}
           >
             <a className="nav-link" href="#">
@@ -76,7 +77,7 @@ const Navbar = ({handleLoginClick}) => {
             to="Fiction"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-20}
             duration={500}
           >
             <a className="nav-link " href="#">
@@ -92,7 +93,7 @@ const Navbar = ({handleLoginClick}) => {
             to="Fantasy"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-20}
             duration={500}
           >
             <a className="nav-link " href="#">
@@ -108,7 +109,7 @@ const Navbar = ({handleLoginClick}) => {
             to="Manga"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-20}
             duration={500}
           >
             <a className="nav-link " href="#">
@@ -124,7 +125,7 @@ const Navbar = ({handleLoginClick}) => {
             to="SciFi"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-20}
             duration={500}
           >
             <a className="nav-link " href="#">
@@ -140,7 +141,7 @@ const Navbar = ({handleLoginClick}) => {
             to="Romance"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-20}
             duration={500}
           >
             <a className="nav-link " href="#">
@@ -156,7 +157,7 @@ const Navbar = ({handleLoginClick}) => {
             to="Poetry"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-20}
             duration={500}
           >
             <a className="nav-link " href="#">
@@ -172,7 +173,7 @@ const Navbar = ({handleLoginClick}) => {
             to="AudioBooks"
             spy={true}
             smooth={true}
-            offset={0}
+            offset={-20}
             duration={500}
           >
             <a className="nav-link " href="#">
@@ -182,19 +183,17 @@ const Navbar = ({handleLoginClick}) => {
               AudioBooks
             </a>
           </Link>
-          <Link className="nav-item">
-            <a className="nav-link " href="#">
-              <span className="icon"></span>
-              Cart
-            </a>
-          </Link>
-          <li className="nav-item">
-            {/* <a className="nav-link " href="#"> */}
-            <span className="icon nav-link" onClick={handleClick}>
-              Login
-            </span>
-            {/* </a> */}
-          </li>
+            <li className="nav-item">
+              <span className="icon nav-link" onClick={onCartClick}>
+                Cart
+              </span>
+            </li>
+            <li className="nav-item" id="login">
+              <span className="icon nav-link" onClick={handleClick}>
+                Login
+              </span>
+            </li>
+          
         </ul>
       </div>
     </nav>

@@ -5,7 +5,8 @@ import axios from "axios";
 import reactDom from "react-dom";
 import CardList from "./CardList";
 import { Card } from "react-bootstrap";
-const Contents = () => {
+const Contents = (props) => {
+  const{onAdd} = props;
   // render books for the rest of the page, leave css for last
   return (
     <div>
@@ -30,7 +31,7 @@ const Contents = () => {
           {/* <div className="prompt">
               <div className="loader"></div>
             </div> */}
-          <CardList subject="bestseller+books" color="#ffdde1" />
+          <CardList subject="bestseller+books" color="#ffdde1" onAdd={onAdd} />
         </div>
         <div className="fade left"></div>
         <div className="fade right"></div>
@@ -43,7 +44,11 @@ const Contents = () => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="popular+fiction+novels" color="#DECBA4" />
+          <CardList
+            subject="popular+fiction+novels"
+            color="#DECBA4"
+            onAdd={onAdd}
+          />
         </div>
       </section>
       <section id="Fantasy" className="results">
@@ -54,7 +59,7 @@ const Contents = () => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="fantasy+fiction" color="#ffdde1" />
+          <CardList subject="fantasy+fiction" color="#ffdde1" onAdd={onAdd} />
         </div>
       </section>
 
@@ -66,7 +71,7 @@ const Contents = () => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="bestseller+manga" color="#e1eec3" />
+          <CardList subject="bestseller+manga" color="#e1eec3" onAdd={onAdd} />
         </div>
       </section>
       <section id="SciFi" className="results">
@@ -77,7 +82,11 @@ const Contents = () => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="science+fiction+novel" color="#ffdde1" />
+          <CardList
+            subject="science+fiction+novel"
+            color="#ffdde1"
+            onAdd={onAdd}
+          />
         </div>
       </section>
       <section id="Romance" className="results">
@@ -88,7 +97,7 @@ const Contents = () => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="romance+novel" color="#DECBA4" />
+          <CardList subject="romance+novel" color="#DECBA4" onAdd={onAdd} />
         </div>
       </section>
       <section id="Poetry" className="results">
@@ -99,7 +108,7 @@ const Contents = () => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="poetry+poems" color="#C9D6FF" />
+          <CardList subject="poetry+poems" color="#C9D6FF" onAdd={onAdd} />
         </div>
       </section>
       <section id="AudioBooks" className="results">
@@ -110,7 +119,7 @@ const Contents = () => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="audio+book" color="#e1eec3" />
+          <CardList subject="audio+book" color="#e1eec3" onAdd={onAdd} />
         </div>
       </section>
     </div>

@@ -6,6 +6,7 @@ import gradient from 'random-gradient'
 import { BsStar, BsStarFill, BsFillPlusCircleFill } from "react-icons/bs";
 
 const CardList = (props) => {
+    const {onAdd} = props;
   const [book, setBook] = useState({ book: "" });
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState(
@@ -64,7 +65,7 @@ const CardList = (props) => {
               <h3 className="book-title">{book.volumeInfo.title}</h3>
               <div className="info">
                 <button
-                  onClick={addToCart}
+                  onClick={onAdd}
                   style={{ background: "inherit", color: "inherit" }}
                 >
                     Add: $15 
