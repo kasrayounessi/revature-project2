@@ -4,24 +4,23 @@ import { BsBookHalf } from "react-icons/bs";
 import axios from "axios";
 import reactDom from "react-dom";
 import CardList from "./CardList";
+import Revature from "./Revature";
 import { Card } from "react-bootstrap";
-const Contents = (props) => {
-  const{onAdd} = props;
-  // render books for the rest of the page, leave css for last
+import Cart from "../Cart";
+import SearchBar from "../SearchBar";
+const Contents = () => {
+
+  // this was supposed to be state used to render cart without refreshing...didn't get it to work.
+  const [add,setAdd] = useState("")
+  const handleAddClick = () =>
+  {
+    setAdd("Add book")
+  }
+
   return (
     <div>
-      {/* <div id="foryou">
-        <section id="romance" className="results">
-          <div className="flex">
-            <h1 className="section-title">My Book Shelf</h1>
-          </div>
-          <div className="list-book">
-            <div className="prompt">
-              <div className="loader"></div>
-            </div>
-          </div>
-        </section>
-      </div> */}
+      <SearchBar />
+      <Cart />
 
       <section id="Popular" className="results">
         <div className="flex">
@@ -31,7 +30,7 @@ const Contents = (props) => {
           {/* <div className="prompt">
               <div className="loader"></div>
             </div> */}
-          <CardList subject="bestseller+books" color="#ffdde1" onAdd={onAdd} />
+          <CardList subject="bestseller+books" color="#ffdde1" />
         </div>
         <div className="fade left"></div>
         <div className="fade right"></div>
@@ -44,11 +43,7 @@ const Contents = (props) => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList
-            subject="popular+fiction+novels"
-            color="#DECBA4"
-            onAdd={onAdd}
-          />
+          <CardList subject="popular+fiction+novels" color="#DECBA4" />
         </div>
       </section>
       <section id="Fantasy" className="results">
@@ -59,7 +54,7 @@ const Contents = (props) => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="fantasy+fiction" color="#ffdde1" onAdd={onAdd} />
+          <CardList subject="fantasy+fiction" color="#ffdde1" />
         </div>
       </section>
 
@@ -71,7 +66,7 @@ const Contents = (props) => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="bestseller+manga" color="#e1eec3" onAdd={onAdd} />
+          <CardList subject="bestseller+manga" color="#e1eec3" />
         </div>
       </section>
       <section id="SciFi" className="results">
@@ -82,11 +77,7 @@ const Contents = (props) => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList
-            subject="science+fiction+novel"
-            color="#ffdde1"
-            onAdd={onAdd}
-          />
+          <CardList subject="science+fiction+novel" color="#ffdde1" />
         </div>
       </section>
       <section id="Romance" className="results">
@@ -97,7 +88,7 @@ const Contents = (props) => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="romance+novel" color="#DECBA4" onAdd={onAdd} />
+          <CardList subject="romance+novel" color="#DECBA4" />
         </div>
       </section>
       <section id="Poetry" className="results">
@@ -108,20 +99,26 @@ const Contents = (props) => {
           {/* <div className="prompt">
             <div className="loader"></div>
           </div> */}
-          <CardList subject="poetry+poems" color="#C9D6FF" onAdd={onAdd} />
+          <CardList subject="poetry+poems" color="#C9D6FF" />
         </div>
       </section>
-      <section id="AudioBooks" className="results">
+      {/* <section id="AudioBooks" className="results">
         <div className="flex">
           <h1 className="section-title">AudioBooks</h1>
         </div>
         <div className="list-book ">
-          {/* <div className="prompt">
-            <div className="loader"></div>
-          </div> */}
-          <CardList subject="audio+book" color="#e1eec3" onAdd={onAdd} />
+         
+          <CardList subject="audio+book" color="#e1eec3"  />
         </div>
       </section>
+      <section id="Revature" className="results">
+        <div className="flex">
+          <h1 className="section-title">Revature</h1>
+        </div>
+        <div className="list-book ">
+          <Revature  color="#e1eec3"  />
+        </div>
+      </section> */}
     </div>
   );
 };

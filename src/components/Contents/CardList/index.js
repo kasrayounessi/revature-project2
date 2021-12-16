@@ -6,8 +6,8 @@ import gradient from 'random-gradient'
 import { BsStar, BsStarFill, BsFillPlusCircleFill } from "react-icons/bs";
 
 const CardList = (props) => {
-    const {onAdd} = props;
-  const [book, setBook] = useState({ book: "" });
+    //const {onAdd} = props;
+  const [add, setAdd] = useState("");
   const [result, setResult] = useState([]);
   const [apiKey, setApiKey] = useState(
     // ran out of my quota for the day so I made a new key
@@ -29,10 +29,15 @@ const CardList = (props) => {
         setResult(data.data.items);
       });
   }, []);
-    const addToCart = () =>
-    {
-        console.log("Add to cart")
-    }
+    const addToCart = (img,title, price) => {
+      var books = JSON.parse(localStorage.getItem("books"));
+      if(books == null) books = [];
+      var book = { thumbnail: img, bookTitle: title, bookPrice: price };
+     //var books = [book];
+     books.push(book);
+     localStorage.setItem('books',JSON.stringify(books));
+     setAdd("added book");
+    };
     const bgGradient = {
         // #cbb4d4
       background: `linear-gradient(${props.color},#f8f9fa)`,
@@ -65,10 +70,18 @@ const CardList = (props) => {
               <h3 className="book-title">{book.volumeInfo.title}</h3>
               <div className="info">
                 <button
-                  onClick={onAdd}
+                  onClick={() =>
+                    addToCart(
+                      book.volumeInfo.imageLinks === undefined
+                        ? ""
+                        : `${book.volumeInfo.imageLinks.thumbnail}`,
+                      book.volumeInfo.title,
+                      15
+                    )
+                  }
                   style={{ background: "inherit", color: "inherit" }}
                 >
-                    Add: $15 
+                  Add: $15
                 </button>
               </div>
             </div>

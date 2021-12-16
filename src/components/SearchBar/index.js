@@ -12,7 +12,7 @@ const SearchBar = (props) => {
     "AIzaSyCKZuhy3LKcKQf1mTTHg4vgC-GmUkREuGA"
     // "AIzaSyApxBTXTqkBeDIr4O13025SmfzUkmt5jUE"
   );
-
+ 
   const handleSearch = (event) => {
     const book = event.target.value;
 
@@ -55,12 +55,18 @@ const SearchBar = (props) => {
   function clearSearch() {
     document.getElementById("search-box").value = "";
   }
-  const addToCart = () => {
-    console.log("Add to cart");
+  const addToCart = (img, title, price) => {
+    var books = JSON.parse(localStorage.getItem("books"));
+    if (books == null) books = [];
+    var book = { thumbnail: img, bookTitle: title, bookPrice: price };
+    //var books = [book];
+    books.push(book);
+    localStorage.setItem("books", JSON.stringify(books));
   };
   const bgGradient = {
     background: `linear-gradient(#92FE9D,#f8f9fa)`,
   };
+  const thumbnail = null;
   const breakPoints = [
     { width: 500, itemsToShow: 1 },
     { width: 768, itemsToShow: 2 },
@@ -90,7 +96,8 @@ const SearchBar = (props) => {
       {result.length > 0 ? (
         <Carousel
           breakPoints={breakPoints}
-          pagination={false}  className="card-list"
+          pagination={false}
+          className="card-list"
         >
           {result.map((book) => (
             <div style={bgGradient} className="book">
@@ -107,7 +114,15 @@ const SearchBar = (props) => {
                 <h3 className="book-title">{book.volumeInfo.title}</h3>
                 <div className="info">
                   <button
-                    onClick={addToCart}
+                    onClick={() =>
+                      addToCart(
+                        book.volumeInfo.imageLinks === undefined
+                          ? ""
+                          : `${book.volumeInfo.imageLinks.thumbnail}`,
+                        book.volumeInfo.title,
+                        15
+                      )
+                    }
                     style={{ background: "inherit", color: "inherit" }}
                   >
                     Add: $15

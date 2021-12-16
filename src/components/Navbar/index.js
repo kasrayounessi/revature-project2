@@ -9,6 +9,7 @@ import {
   BsVectorPen,
   BsHeadphones,
   BsSuitHeartFill,
+  BsCodeSlash,
 } from "react-icons/bs";
 import { GiAncientSword, GiSpaceSuit } from "react-icons/gi";
 import { Link } from "react-scroll";
@@ -183,17 +184,30 @@ const Navbar = ({ handleLoginClick,handleCartClick }) => {
               AudioBooks
             </a>
           </Link>
-            <li className="nav-item">
-              <span className="icon nav-link" onClick={onCartClick}>
-                Cart
-              </span>
-            </li>
-            <li className="nav-item" id="login">
-              <span className="icon nav-link" onClick={handleClick}>
-                Login
-              </span>
-            </li>
-          
+          {/* <Link
+            className="nav-item"
+            activeClass="active"
+            to="Revature"
+            spy={true}
+            smooth={true}
+            offset={-20}
+            duration={500}
+          >
+            <a className="nav-link " href="#">
+              <span className="icon"><BsCodeSlash/></span>
+              Revature
+            </a>
+          </Link> */}
+          {/* <li className="nav-item">
+            <span className="icon nav-link" onClick={onCartClick}>
+              Cart
+            </span>
+          </li> */}
+          <li className="nav-item" id="login">
+            <span className="icon nav-link" onClick={handleClick}>
+              Login
+            </span>
+          </li>
         </ul>
       </div>
     </nav>
