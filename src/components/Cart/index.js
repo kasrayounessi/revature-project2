@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "../../style.css";
 import { BsSearch, BsFillPlusCircleFill } from "react-icons/bs";
 import axios from "axios";
@@ -15,7 +15,6 @@ REMEMBER WHEN ADDING STUFF TO THE CART FROM CARDLIST COMPONENT IN CONTENTS COMPO
 SAME THING TO  SEARCHBAR COMPONENT BECAUSE THOSE BOOKS ARE RENDERED SEPERATELY*/
 
 const Cart = (props) => {
- 
   const bgGradient = {
     background: `linear-gradient(#92FE9D,#f8f9fa)`,
   };
@@ -26,21 +25,19 @@ const Cart = (props) => {
     { width: 1200, itemsToShow: 3 },
     { width: 1500, itemsToShow: 4 },
   ];
-  var books = localStorage.getItem('books');
-  if (books == undefined) var result = []
-  else
-  { 
+  var books = localStorage.getItem("books");
+  if (books == undefined) var result = [];
+  else {
     var result = JSON.parse(books);
   }
   // FUNCTIONS FOR THE BACKEND
   // ADD BOOKS TO CART FROM SEARCHBAR OR CARDLIST COMPONENT, THE ADD FUNCTION IS IN THERE,
-  const remove = () =>{
-    console.log("Removed book but not really.")
-  }
+  const remove = () => {
+    console.log("Removed book but not really.");
+  };
   const purchaseAll = () => {
-    console.log("Purchased all but not really")
-  }
-
+    console.log("Purchased all but not really");
+  };
 
   const { cartItems, onAdd, onRemove } = props;
   return (

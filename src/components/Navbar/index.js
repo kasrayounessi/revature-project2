@@ -198,11 +198,11 @@ const Navbar = ({ handleLoginClick,handleCartClick }) => {
               Revature
             </a>
           </Link> */}
-          {/* <li className="nav-item">
+          <li className="nav-item">
             <span className="icon nav-link" onClick={onCartClick}>
               Cart
             </span>
-          </li> */}
+          </li>
           <li className="nav-item" id="login">
             <span className="icon nav-link" onClick={handleClick}>
               Login

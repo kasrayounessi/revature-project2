@@ -8,7 +8,7 @@ import Revature from "./Revature";
 import { Card } from "react-bootstrap";
 import Cart from "../Cart";
 import SearchBar from "../SearchBar";
-const Contents = () => {
+const Contents = ({open}) => {
 
   // this was supposed to be state used to render cart without refreshing...didn't get it to work.
   const [add,setAdd] = useState("")
@@ -16,12 +16,17 @@ const Contents = () => {
   {
     setAdd("Add book")
   }
-
+  const renderCart = () =>
+  {
+    console.log("render cart clicked")
+    if(open) return <Cart />
+  }
   return (
     <div>
       <SearchBar />
-      <Cart />
-
+      
+      {/* <Cart /> */}
+      {renderCart()}
       <section id="Popular" className="results">
         <div className="flex">
           <h1 className="section-title">Popular</h1>
